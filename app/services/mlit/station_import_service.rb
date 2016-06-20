@@ -6,7 +6,6 @@ module Mlit
 
     def execute
       @parser.parse.each do |mlit_station|
-pp mlit_station
         company = Company.find_by(name: mlit_station.operation_company)
         if company.nil?
           company = Company.new(
@@ -15,7 +14,6 @@ pp mlit_station
           )
           company.save!
         end
-        pp company
 
         railway_line = RailwayLine.find_by(company: company, name: mlit_station.railway_line_name)
         if railway_line.nil?
@@ -26,7 +24,6 @@ pp mlit_station
           )
           railway_line.save!
         end
-        pp railway_line
 
         station = ::Station.find_by(original_signature: mlit_station.original_signature)
         if station.nil?
@@ -39,7 +36,6 @@ pp mlit_station
           )
           station.save!
         end
-        pp station
       end
     end
   end
