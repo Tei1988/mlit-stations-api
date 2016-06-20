@@ -8,8 +8,8 @@ This API uses the open data published by Ministry of Land, Infrastructure, Trans
 1. Download master data from [MLIT](http://nlftp.mlit.go.jp/ksj/gml/datalist/KsjTmplt-N02-v2_2.html)
 1. Unzip the downloaded file.  
    You will obtain N02-14.xml.
-1. run as:
-   ```sh
+1. run as:  
+   ```
    rails mlit:import[/path/to/N02-14.xml]
    ```
 
