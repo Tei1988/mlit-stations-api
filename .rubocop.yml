@@ -27,6 +27,9 @@ Style/IfUnlessModifier:
 Style/NumericLiterals:
   MinDigits: 10
 
+Metrics/MethodLength:
+  Enabled: false
+
 Style/PercentLiteralDelimiters:
   PreferredDelimiters:
    '%': '{}'
