@@ -1,6 +1,6 @@
 module Mlit
   class StationParser
-    include Virtus.model;
+    include Virtus.model
 
     attribute :filepath, String
 

@@ -11,6 +11,6 @@ class ServiceProviderType < ActiveHash::Base
     { id: 2, name: 'JR在来線' },
     { id: 3, name: '公営鉄道' },
     { id: 4, name: '民営鉄道' },
-    { id: 5, name: '第三セクター' },
+    { id: 5, name: '第三セクター' }
   ]
 end
