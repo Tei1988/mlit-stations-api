@@ -1,4 +1,7 @@
 ## mlit-stations-api
+[![Code Climate](https://codeclimate.com/github/Tei1988/mlit-stations-api/badges/gpa.svg)](https://codeclimate.com/github/Tei1988/mlit-stations-api)
+[![Dependency Status](https://gemnasium.com/badges/github.com/Tei1988/mlit-stations-api.svg)](https://gemnasium.com/github.com/Tei1988/mlit-stations-api)
+
 mlit-stations-api is an API server for searching Japanese stations by the geolocation.
 
 This API uses the open data published by Ministry of Land, Infrastructure, Transport and Tourism(, MLIT), Japan.
