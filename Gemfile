@@ -18,7 +18,7 @@ source 'https://rubygems.org' do
   group :test do
     gem 'database_rewinder'
     gem 'ffaker'
-    gem 'rspec-rails'
+    gem 'rspec-rails', '>=3.5.0.beta4'
     gem 'rspec-request_describer'
     gem 'rspec_junit_formatter'
     gem 'validation_examples_matcher'
