@@ -2,6 +2,7 @@
 source 'https://rubygems.org' do
   gem 'active_hash'
   gem 'activerecord-postgis-adapter', '~> 4.0.0.rc'
+  gem 'dotenv-rails'
   gem 'oga'
   gem 'pg', '~> 0.18'
   gem 'puma'
