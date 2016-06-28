@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 class RailwayType < ActiveHash::Base
   include ActiveModel::Validations
 

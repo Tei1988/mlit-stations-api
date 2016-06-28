@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 Module.new do
   extend Rake::DSL
   extend self
