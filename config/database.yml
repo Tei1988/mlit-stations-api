@@ -17,4 +17,3 @@ production:
   <<: *default
   database: mlit-stations-api_production
   username: mlit-stations-api
-  password: <%= ENV['MLIT-STATIONS-API_DATABASE_PASSWORD'] %>
