@@ -18,7 +18,7 @@ This API uses the open data published by Ministry of Land, Infrastructure, Trans
   ```
 
 ## API
-### GET /v1/stations
+### GET /api/stations
 |name|include?|example|
 |---|---|---|
 |latitude|Must|35.681298|
