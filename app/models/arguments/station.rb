@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 module Arguments
   class Station
     include Virtus.model

@@ -1,41 +1,46 @@
+# frozen_string_literal: true
 module Mlit
   class StationImportService
-    include Virtus.model;
+    include Virtus.model
 
     attribute :parser, Object
 
     def execute
       @parser.parse.each do |mlit_station|
-        company = Company.find_by(name: mlit_station.operation_company)
-        if company.nil?
-          company = Company.new(
-            service_provider_type_id: mlit_station.service_provider_type,
-            name: mlit_station.operation_company,
-          )
-          company.save!
-        end
+        company = company(mlit_station)
+        railway_line = railway_line(mlit_station, company)
+        station(mlit_station, railway_line)
+      end
+    end
 
-        railway_line = RailwayLine.find_by(company: company, name: mlit_station.railway_line_name)
-        if railway_line.nil?
-          railway_line = RailwayLine.new(
-            company: company,
-            railway_type_id: mlit_station.railway_type,
-            name: mlit_station.railway_line_name,
-          )
-          railway_line.save!
-        end
+    private
 
-        station = ::Station.find_by(original_signature: mlit_station.original_signature)
-        if station.nil?
-          station = ::Station.new(
-            railway_line: railway_line,
-            name: mlit_station.station_name,
-            original_signature: mlit_station.original_signature,
-            location: 'POINT(' + ([0.0, 0.0].zip(*mlit_station.location_points.map(&:to_f).in_groups_of(2)))
-                                .map { |v| v.reduce(&:+) / (v.length - 1) }.reverse.join(' ') + ')'
-          )
-          station.save!
-        end
+    def company(mlit_station)
+      params = { name: mlit_station.operation_company }
+      Company.find_or_create_by(params) do |c|
+        c.service_provider_type_id = mlit_station.service_provider_type
+      end
+    end
+
+    def railway_line(mlit_station, company)
+      params = { company: company, name: mlit_station.railway_line_name }
+      RailwayLine.find_or_create_by(params) do |r|
+        r.railway_type_id = mlit_station.railway_type
+      end
+    end
+
+    def station(mlit_station, railway_line)
+      params = { original_signature: mlit_station.original_signature }
+      ::Station.find_or_create_by(params) do |s|
+        location =
+          [0.0, 0.0]
+          .zip(*mlit_station.location_points.map(&:to_f).in_groups_of(2))
+          .map { |v| v.reduce(&:+) / (v.length - 1) }
+          .reverse
+
+        s.railway_line = railway_line
+        s.name = mlit_station.station_name
+        s.location = "POINT(#{location.join(' ')})"
       end
     end
   end

@@ -1,0 +1,41 @@
+AllCops:
+  Exclude:
+    - vendor/**/*
+    - db/**/*
+    - bin/**
+  DisplayCopNames: true
+
+Rails:
+  Enabled: true
+
+
+Style/AsciiComments:
+  Enabled: false
+
+Style/BlockComments:
+  Enabled: false
+
+Style/ClassAndModuleChildren:
+  Enabled: false
+
+Style/Documentation:
+  Enabled: false
+
+Style/IfUnlessModifier:
+  Enabled: false
+
+Style/NumericLiterals:
+  MinDigits: 10
+
+Metrics/MethodLength:
+  Enabled: false
+
+Style/PercentLiteralDelimiters:
+  PreferredDelimiters:
+   '%': '{}'
+
+Style/SignalException:
+  Enabled: false
+
+FormatString:
+  EnforcedStyle: percent
