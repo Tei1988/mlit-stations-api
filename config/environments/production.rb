@@ -16,8 +16,6 @@ Rails.application.configure do
     config.logger = ActiveSupport::TaggedLogging.new(Logger.new(STDOUT))
   end
 
-  config.action_mailer.perform_caching = false
-
   config.i18n.fallbacks = true
 
   config.active_support.deprecation = :notify
