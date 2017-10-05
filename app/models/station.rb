@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 class Station < ActiveRecord::Base
   belongs_to :railway_line
 
@@ -12,6 +13,6 @@ class Station < ActiveRecord::Base
   }
 
   scope :close_to, lambda { |latitude, longitude, distance_in|
-    where(POSTGIS_CLOSE_TO % [latitude, longitude, distance_in])
+    where(format(POSTGIS_CLOSE_TO, latitude, longitude, distance_in))
   }
 end

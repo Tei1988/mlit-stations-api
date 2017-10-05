@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 class RailwayType < ActiveHash::Base
   include ActiveModel::Validations
 
@@ -19,6 +20,6 @@ class RailwayType < ActiveHash::Base
     { id: 22, name: '懸垂式モノレール' },
     { id: 23, name: '跨座式モノレール' },
     { id: 24, name: '案内軌条式' },
-    { id: 25, name: '浮上式' }
+    { id: 25, name: '浮上式' },
   ]
 end

@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 module Mlit
   class StationParser
     include Virtus.model
@@ -27,7 +28,7 @@ module Mlit
         railway_line_name: railway_line_name(element),
         operation_company: operation_company(element),
         station_name: station_name(element),
-        location_points: location_points(document)
+        location_points: location_points(document),
       )
     end
 

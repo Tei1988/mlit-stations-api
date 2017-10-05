@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class EnablePostgisExtension < ActiveRecord::Migration
   def change
     execute 'CREATE EXTENSION IF NOT EXISTS postgis;'
