@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 module Api
   class StationsController < ApplicationController
     def index
@@ -9,7 +10,7 @@ module Api
 
       render json: {
         type: 'FeatureCollection',
-        features: stations.map(&method(:to_feature))
+        features: stations.map(&method(:to_feature)),
       }
     end
 
@@ -25,8 +26,8 @@ module Api
         properties: {
           companyName: company.name,
           railwayLineName: railway_line.name,
-          stationName: station.name
-        }
+          stationName: station.name,
+        },
       }
     end
 

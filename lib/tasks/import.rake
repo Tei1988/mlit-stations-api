@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 Module.new do
   extend Rake::DSL
   extend self
@@ -7,9 +8,7 @@ Module.new do
 
     task :import, %w(filepath)
     task import: :environment do |_task, args|
-      if args[:filepath].nil?
-        raise ArgumentError, 'no filepath'
-      end
+      raise ArgumentError, 'no filepath' if args[:filepath].nil?
       filepath = args[:filepath]
 
       parser = Mlit::StationParser.new(filepath: filepath)

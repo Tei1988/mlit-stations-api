@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 Rails.application.configure do
   config.cache_classes = true
 
@@ -6,7 +7,7 @@ Rails.application.configure do
 
   config.public_file_server.enabled = true
   config.public_file_server.headers = {
-    'Cache-Control' => 'public, max-age=3600'
+    'Cache-Control' => 'public, max-age=3600',
   }
 
   config.consider_all_requests_local       = true

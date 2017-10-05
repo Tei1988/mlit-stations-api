@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CreateStations < ActiveRecord::Migration
   def change
     create_table :stations, id: :serial, unsigned: true do |t|
