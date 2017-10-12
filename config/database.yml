@@ -1,8 +1,6 @@
 default: &default
   adapter: postgis
-  encoding: unicode
-  # For details on connection pooling, see rails configuration guide
-  # http://guides.rubyonrails.org/configuring.html#database-pooling
+  encoding: utf8
   pool: <%= ENV.fetch('RAILS_MAX_THREADS') { 5 } %>
 
 development:
@@ -16,5 +14,6 @@ test:
 production:
   <<: *default
   database: mlit-stations-api_production
-  username: mlit-stations
+  username: <%= ENV['DATABASE_USERNAME'] %>
+  password: <%= ENV['DATABASE_PASSWORD'] %>
   host: <%= ENV['DATABASE_HOST'] %>

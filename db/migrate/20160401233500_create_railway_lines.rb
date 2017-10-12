@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class CreateRailwayLines < ActiveRecord::Migration
+class CreateRailwayLines < ActiveRecord::Migration[5.1]
   def change
     create_table :railway_lines, id: :serial, unsigned: true do |t|
       t.integer :company_id, unsigned: true, null: false
