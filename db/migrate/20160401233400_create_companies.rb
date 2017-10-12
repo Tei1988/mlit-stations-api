@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class CreateCompanies < ActiveRecord::Migration
+class CreateCompanies < ActiveRecord::Migration[5.1]
   def change
     create_table :companies, id: :serial, unsigned: true do |t|
       t.integer :service_provider_type_id, unsigned: true, null: false
