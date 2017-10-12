@@ -11,7 +11,7 @@ Module.new do
       raise ArgumentError, 'no filepath' if args[:filepath].nil?
       filepath = args[:filepath]
 
-      parser = Mlit::StationParser.new(filepath: filepath)
+      parser = Mlit::StationParser::GeoJson.new(filepath: filepath)
       Mlit::StationImportService.new(parser: parser).execute
     end
   end
