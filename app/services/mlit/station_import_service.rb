@@ -7,10 +7,12 @@ module Mlit
     attribute :parser, Object
 
     def execute
-      @parser.parse.each do |mlit_station|
-        company = company(mlit_station)
-        railway_line = railway_line(mlit_station, company)
-        station(mlit_station, railway_line)
+      ActiveRecord::Base.transaction do
+        @parser.parse.each do |mlit_station|
+          company = company(mlit_station)
+          railway_line = railway_line(mlit_station, company)
+          station(mlit_station, railway_line)
+        end
       end
     end
 
